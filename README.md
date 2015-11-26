@@ -1,5 +1,6 @@
 # WPM-to-Zabbix
-Funnel WPM data to Zabbix.
+Funnel Neustar WPM data to Zabbix.
+Uses [Neustar WPM REST API](https://apidocs.wpm.neustar.biz/).
 
 Will match WPM Monitor description to a Zabbix item key on the Zabbix host specified in the config.
 If description is empty on WPM Monitor, will skip.
