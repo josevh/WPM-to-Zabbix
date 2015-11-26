@@ -11,6 +11,12 @@ Rename config.ini.example to config.ini and fill in information.
 
 Will create SQLite db in ```db``` dir to track changes.
 
+Will send one of the following values to Zabbix:
+* 0 (INACTIVE)
+* 1 (SUCCESS)
+* 2 (ERROR)
+* 3 (INACTIVE)
+
 ## Config
 * WPM
   * api_key
