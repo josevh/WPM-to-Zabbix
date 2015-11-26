@@ -1,0 +1,11 @@
+[WPM]
+api_key =
+api_secret =
+sample_delta_min =
+
+[Zabbix Server]
+ip =
+port =
+
+[Zabbix Host]
+host_name =
