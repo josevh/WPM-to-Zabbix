@@ -31,7 +31,7 @@ Will send one of the following values to Zabbix:
   * host_name
 
 ## Requires:
-* tfullert/wpm-api (included)
+* [tfullert/wpm-api](https://github.com/tfullert/wpm-api) (included)
 * python-protobix
 * Requests
 * SimpleJSON
