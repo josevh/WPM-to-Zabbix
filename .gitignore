@@ -1,0 +1,5 @@
+lib/wpm-api/info.txt
+testing.py
+*.pyc
+*.db
+*.ini
