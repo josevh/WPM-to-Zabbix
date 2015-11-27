@@ -192,7 +192,7 @@ def main():
     wpmData = getWPMData(monitorClient, zbxHost)
     my_logger.info('function getWPMData complete')
     my_logger.info('call function sendZBXData')
-    #sendZBXData(wpmData, zbxHost)
+    sendZBXData(wpmData, zbxHost)
     my_logger.info('sendZBXData complete, end main')
 
 main()
