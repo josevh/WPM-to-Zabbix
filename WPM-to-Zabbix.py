@@ -10,8 +10,6 @@ import protobix             #for python-zabbix_sender
 import logging              #for logging
 import logging.handlers	    #for logging
 import sqlite3              #for db
-from pytz import timezone   #for timezones
-import pytz                 #for timezones
 import ConfigParser         #for reading config
 
 ''' read config file '''
@@ -114,9 +112,7 @@ def getWPMData(monitorClient, zbxHost):
     ''' time config '''
     my_logger.info('Time config start')
 
-    #t = datetime.datetime.utcnow()                                 #on 11/26/2015 API started expecting PST instead
-    t = datetime.datetime.utcnow().replace(tzinfo=timezone('UTC'))  #switch to PST
-    t = t.astimezone(timezone('America/Los_Angeles'))               #switch to PST
+    t = datetime.datetime.utcnow()
 
     t1 = t - datetime.timedelta(minutes=0)
     t2 = t - datetime.timedelta(minutes=int(config.get('WPM', 'sample_delta_min')))
@@ -196,7 +192,7 @@ def main():
     wpmData = getWPMData(monitorClient, zbxHost)
     my_logger.info('function getWPMData complete')
     my_logger.info('call function sendZBXData')
-    sendZBXData(wpmData, zbxHost)
+    #sendZBXData(wpmData, zbxHost)
     my_logger.info('sendZBXData complete, end main')
 
 main()

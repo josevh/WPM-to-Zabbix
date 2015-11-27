@@ -36,7 +36,6 @@ Will send one of the following values to Zabbix:
 * Requests
 * SimpleJSON
 * psutil
-* pytz
 * sqlite3
 
 ## Disclaimer:
