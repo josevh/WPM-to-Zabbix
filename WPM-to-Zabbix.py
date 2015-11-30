@@ -12,10 +12,6 @@ import logging.handlers	    #for logging
 import sqlite3              #for db
 import ConfigParser         #for reading config
 
-''' read config file '''
-config = ConfigParser.ConfigParser()                                            # TODO: catch if not exist
-config.read('config.ini')
-
 ''' set up logging '''
 LOG_FILENAME = '/var/log/wpm/wpm-to-zabbix.log'	                                # TODO: create dir if not exist
 my_logger = logging.getLogger('MainLog')
@@ -45,8 +41,16 @@ def printMonitorsDB(step):
         print step
         print row
 
-''' set up db '''
 dir = os.path.dirname(__file__)
+my_logger.debug('dir:' + dir)
+
+''' read config file '''
+my_logger.debug('Check config file')
+config = ConfigParser.ConfigParser()                                            # TODO: catch if not exist
+config.read(os.path.join(dir, 'config.ini'))
+
+''' set up db '''
+my_logger.debug('Check DB')
 db_filename = os.path.join(dir, 'db/monitors.db')
 schema_filename = os.path.join(dir, 'db/schema.sql')
 db_is_new = not os.path.exists(db_filename)
@@ -183,9 +187,13 @@ def sendZBXData(zbxPayload, zbxHost):
 
 def main():
     my_logger.info('start main')
+
+    my_logger.debug('get config info [key, secret, zbxHost]')
     key = config.get('WPM', 'api_key')
     secret = config.get('WPM', 'api_secret')
     zbxHost = config.get('Zabbix Host', 'host_name')
+
+    my_logger.debug('get monitorClient')
     monitorClient = Monitor(key, secret)
 
     my_logger.debug('call function getWPMData')
