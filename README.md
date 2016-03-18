@@ -15,8 +15,8 @@ Will create SQLite db in ```db``` dir to track changes.
 Will send one of the following values to Zabbix:
 * 0 (INACTIVE)
 * 1 (SUCCESS)
-* 2 (ERROR)
-* 3 (INACTIVE)
+* 2 (WARNING)
+* 3 (ERROR)
 
 ## Config
 * WPM
