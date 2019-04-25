@@ -1,4 +1,7 @@
 # WPM-to-Zabbix
+
+> **NO LONGER MAINTAINED**
+
 Funnel Neustar WPM Monitor data to Zabbix.
 Uses [Neustar WPM REST API](https://apidocs.wpm.neustar.biz/).
 
